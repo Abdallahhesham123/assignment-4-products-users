@@ -77,9 +77,7 @@ app.patch("/api/user/:id", (req, res) => {
   // with placeholder
   connection.execute(query, (err, result, fields) => {
     if (err) {
-            if (err.errno == 1062) {
-        return res.status(400).json({ message: "Email Already Exist" });
-      }
+  
       return res.status(400).json({ message: "QueryError", err });
     }
     return result.affectedRows > 0
